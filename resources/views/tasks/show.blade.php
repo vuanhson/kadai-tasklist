@@ -8,6 +8,6 @@
     {!! Form::model($task, ['route' => ['tasks.destroy', $task->id], 'method' => 'delete']) !!}
         {!! Form::submit('Delete this Task') !!}
     {!! Form::close() !!}
-    <p>{{ $task->content }}</p>
+    <p>Task content: {{ $task->content }} and task status is: {{$task->status}}</p>
     
 @endsection

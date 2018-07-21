@@ -7,9 +7,12 @@
 
     {!! Form::model($task, ['route' => 'tasks.store']) !!}
 
+        
         {!! Form::label('content', 'Task content:') !!}
         {!! Form::text('content') !!}
 
+        {!! Form::label('status', 'Task status:') !!}
+        {!! Form::text('status') !!}
         {!! Form::submit('Submit') !!}
 
     {!! Form::close() !!}
