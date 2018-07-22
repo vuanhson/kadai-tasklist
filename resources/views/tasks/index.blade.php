@@ -3,12 +3,26 @@
 @section('content')
     
 <!-- ここにページ毎のコンテンツを書く -->
-    {!! link_to_route('tasks.create', 'Create new task') !!}
+    {!! link_to_route('tasks.create', 'Create new task', null, ['class' => 'btn btn-primary']) !!}
     @if (count($tasks) > 0)
-        <ul>
-            @foreach ($tasks as $task)
-                <li>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!} :  {{ $task->content }} ........ {{ $task->status }}</li>
-            @endforeach
-        </ul>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Task content</th>
+                    <th>Task status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($tasks as $task)
+                    <tr>
+                        <td>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!}</td>
+                        <td>{{ $task->content }}</td>
+                        <td>{{ $task->status }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
     @endif
 @endsection
